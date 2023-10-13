@@ -18,7 +18,7 @@ def index(request):
             Q(is_published=True) & (
                 Q(is_on_main=True) | Q(title__contains='пломбир')
             )
-        ).exclude()
+        ).order_by('title')[1:4]
     context = {
         'ice_cream_list': ice_cream_list,
     }
